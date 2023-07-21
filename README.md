@@ -1,6 +1,6 @@
 # Repo Chat
 
-Repo Chat is a service that allows you to interact with the GPT-3.5 and GPT-4 models by OpenAI through a web interface. It utilizes Docker and FastAPI to create a lightweight and portable application. Repo Chat is designed to be used in a development environment where the codebase is constantly changing. It uses the LangChain library to process the codebase and generate contextual embeddings that are then used as input to your selected OpenAI chat model.
+Repo Chat is a service that allows you to interact with your own code repository (placed as sibling directories) via the GPT-3.5 and GPT-4 models by OpenAI through a web interface (http://repochat.localhost:8008/). It utilizes Docker and FastAPI to create a lightweight and portable application. Repo Chat is designed to be used in a development environment where the codebase is constantly changing. It uses the LangChain library to process the codebase and generate contextual embeddings that are then used as input to your selected OpenAI chat model.
 
 ## Description
 
