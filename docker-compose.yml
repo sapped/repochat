@@ -1,0 +1,25 @@
+# FastApi + Traefik + Docker: https://testdriven.io/blog/fastapi-docker-traefik/
+# Minio: http://www.sefidian.com/2022/04/08/deploy-standalone-minio-using-docker-compose/
+version: '3.8'
+
+services:
+  repochat:
+    env_file:
+      - ./repochat/secrets.env
+    build: ./repochat
+    command: bash -c 'uvicorn repochat.main:app --host 0.0.0.0 --reload'
+    volumes:
+      - .:/app
+    expose:
+      - 8000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.repochat.rule=Host(`repochat.localhost`)"
+  traefik:
+    image: traefik:v2.9.6
+    ports:
+      - 8008:80
+      - 8081:8080
+    volumes:
+      - "./traefik.dev.toml:/etc/traefik/traefik.toml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"

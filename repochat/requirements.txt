@@ -1,0 +1,9 @@
+deeplake[enterprise]==3.6.11
+jinja2==3.1.2
+langchain==0.0.236
+openai==0.27.8
+pathspec==0.11.1
+python-multipart==0.0.6
+tiktoken==0.4.0
+fastapi==0.95.1
+uvicorn==0.22.0

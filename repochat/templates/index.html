@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask a Question</title>
+</head>
+<body>
+    <h1>Ask a Question</h1>
+    <form action="/ask_question" method="post">
+        <label for="question">Question:</label><br>
+        <textarea id="question" name="question" rows="10" style="height: 100%; width:100%">{{ form_data.question if form_data and form_data.question else '' }}</textarea><br>
+        
+        <label for="path_filter_layer_1">First Layer Path Filters (code paths, extensions, etc. to include in code context), Comma-Separated:</label><br>
+        <textarea id="path_filter_layer_1" name="path_filter_layer_1" rows="5" style="height: 100%; width:100%">{{ form_data.path_filter_layer_1 if form_data and form_data.path_filter_layer_1 else '' }}</textarea><br>
+
+        <label for="path_filter_layer_2">Second Layer Path Filters (code paths, extensions, etc. to include in code context), Comma-Separated:</label><br>
+        <textarea id="path_filter_layer_2" name="path_filter_layer_2" rows="5" style="height: 100%; width:100%">{{ form_data.path_filter_layer_2 if form_data and form_data.path_filter_layer_2 else '' }}</textarea><br>
+        
+        <input type="checkbox" id="gpt4_on" name="gpt4_on" value="true" {% if form_data and form_data.gpt4_on == 'true' %}checked{% endif %}>
+        <label for="gpt4_on">GPT-4 On</label><br>
+
+        <input type="checkbox" id="test_mode" name="test_mode" value="true" {% if form_data and form_data.test_mode == 'true' %}checked{% endif %}>
+        <label for="test_mode">Test Mode</label><br>
+        
+        <label for="pass_chat_history">Number of chat history entries to post:</label><br>
+        <input type="number" id="pass_chat_history" name="pass_chat_history" value="3" min="0"><br>
+
+        <input type="submit" value="Submit"><br>
+    </form>
+    
+    {% if answer %}
+        <div class="markdown">
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
