@@ -33,7 +33,7 @@ The idea is that you will place repochat into your own repository, so that it ca
 
 ## API Documentation
 
-The API documentation is automatically generated and can be accessed at http://localhost:8008/docs. Here, you can find more detailed instructions and examples for each endpoint.
+The API documentation is automatically generated and can be accessed at http://repochat.localhost:8008/docs. Here, you can find more detailed instructions and examples for each endpoint.
 
 ## Limitations and Considerations
 
